@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles</title>
+    <style>
+        .profile-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .profile-card h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .profile-info {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profiles</h1>
+    {% for profile in profiles %}
+        <div class="profile-card">
+            <h2>{{ profile.first_name }} {{ profile.last_name }}</h2>
+            <div class="profile-info">
+                <p><strong>Age:</strong> {{ profile.age }}</p>
+                <p><strong>Phone:</strong> {{ profile.phone_number }}</p>
+                <p><strong>Bio:</strong> {{ profile.bio }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p>No profiles found.</p>
+    {% endfor %}
+</body>
+</html> 
